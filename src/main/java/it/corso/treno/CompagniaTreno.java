@@ -6,5 +6,5 @@ public enum CompagniaTreno {
 	ITALO,
 	TRE_NORD,
 	TRENO_GENERICO;
-	
+	//*
 }
