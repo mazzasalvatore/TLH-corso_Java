@@ -3,7 +3,7 @@ package it.corso.treno;
 import it.corso.treno.fabbrica.Carrozza;
 
 public abstract class Vagone implements Carrozza {
-
+//Monica Prova Vagone
 	private double peso;
 	private double pesoMax;
 	
