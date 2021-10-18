@@ -1,6 +1,7 @@
 package it.corso.treno;
 
 import java.util.Collection;
+//* Commento di prova *//
 
 public class Treno {
 
