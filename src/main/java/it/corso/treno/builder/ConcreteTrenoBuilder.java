@@ -27,6 +27,10 @@ public class ConcreteTrenoBuilder extends TrenoBuilder{
 		
 	}
 
+	String getCompagnia() {
+		return factory.getCompagnia();
+	}
+	
 	public void setFactory(FabbricaTreno factory) {
 		this.factory = factory;
 	}

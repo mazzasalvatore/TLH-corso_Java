@@ -23,5 +23,9 @@ public class FRFabbricaTreno implements FabbricaTreno{
 	public ConcreteCargo creaCargo() {
 		return new FRCargo(); 
 	}
+
+	public String getCompagnia() {
+		return "FRECCIA-ROSSA";
+	}
 	
 }
