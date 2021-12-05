@@ -15,10 +15,10 @@ public abstract class TrenoBuilder {
 
 	private Treno treno = new Treno();
 	
-	public Treno getTreno(String codice, String elenco) throws UserErrorException {
+	public Treno getTreno(String codice, String elenco, CompagniaTreno compagnia) throws UserErrorException {
 		verificaStringaTreno(codice, elenco);
-		Object primoElementoTreno = creaElementoTreno(elenco.substring(0,1));
-		Collection<Carrozza> carrozze = carrozze(codice, elenco);
+		Object primoElementoTreno = creaElementoTreno(elenco.substring(0,1), compagnia, codice);
+		Collection<Carrozza> carrozze = carrozze(codice, elenco, compagnia);
 		ArrayList<Vagone> vagoni = new ArrayList<Vagone>();
 		// con la cast si verifica che il primo vagone sia una motrice
 		vagoni.add((Vagone) (Motrice) primoElementoTreno);
@@ -35,7 +35,7 @@ public abstract class TrenoBuilder {
 		
 		treno.setCodice(codice);
 		treno.setVagoni(vagoni);
-		treno.setCompagnia(getCompagnia());		
+		treno.setCompagnia(compagnia);		
 
 		return treno;
 		
@@ -117,7 +117,7 @@ public abstract class TrenoBuilder {
 		
 	}
 	
-	private Object creaElementoTreno (String elementoCodice) {
+	private Object creaElementoTreno (String elementoCodice, CompagniaTreno compagnia, String codice) {
 
 		switch (elementoCodice) {
 			case "H" :{
@@ -138,16 +138,35 @@ public abstract class TrenoBuilder {
 		}
 	 }
 	
-	private Collection<Carrozza> carrozze(String codice, String elenco) {
+	private Collection<Carrozza> carrozze(String codice, String elenco, CompagniaTreno compagnia) {
 		Collection<Carrozza> carrozze = new ArrayList<Carrozza>();
 		for (short posizioneInTesto=1 ; posizioneInTesto< elenco.length(); posizioneInTesto++) {
-			Object enneElementoTreno = creaElementoTreno(elenco.substring(posizioneInTesto,posizioneInTesto+1));
+			Object enneElementoTreno = creaElementoTreno(elenco.substring(posizioneInTesto,posizioneInTesto+1), compagnia, codice);
 			carrozze.add((Carrozza) enneElementoTreno);
 /*			System.out.println("tipo treno<" + tipoTreno + "> per codice<" + codice + ">"
 				+ " elemento<" + elenco.substring(posizioneInTesto,posizioneInTesto+1) + ">"); 
 */ 
 		}
 		return carrozze;
+	}
+	
+	public static CompagniaTreno determinaCompagniaTreno(String codice) {
+		return rangeCodiciTreno(codice, "1000", "2000", "3000");
+	}	
+	
+	private static CompagniaTreno rangeCodiciTreno(String codice, String r1, String r2, String r3) {
+		if (codice.compareTo(r1) <= 0) {
+			return CompagniaTreno.TRENO_GENERICO;
+		}
+		else if (codice.compareTo(r2) <= 0) {
+			return CompagniaTreno.FRECCIA_ROSSA;
+		}
+		else if (codice.compareTo(r3) <= 0) {
+			return CompagniaTreno.ITALO;
+		}
+		else {
+			return CompagniaTreno.TRENO_GENERICO;
+		}
 	}
 	
 	abstract ConcreteLocomotiva getLocomotiva();
@@ -157,7 +176,5 @@ public abstract class TrenoBuilder {
 	abstract ConcreteCarrozzaRistorante getCarrozzaRistorante();
 	
 	abstract ConcreteCargo getCargo();
-	
-	abstract String getCompagnia();
 	
 }

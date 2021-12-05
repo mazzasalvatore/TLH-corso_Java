@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import it.corso.treno.builder.ConcreteTrenoBuilder;
+import it.corso.treno.builder.TrenoBuilder;
 import it.corso.treno.exception.UserErrorException;
 import it.corso.treno.fabbrica.fr.FRFabbricaTreno;
 import it.corso.treno.fabbrica.fs.FSFabbricaTreno;
@@ -34,36 +35,36 @@ public class FileTrenoReader {
 			}
 			Treno treno;
 			ConcreteTrenoBuilder builder = new ConcreteTrenoBuilder();
-			String compagnia = "FS";
+			CompagniaTreno compagnia = TrenoBuilder.determinaCompagniaTreno(riga.substring(0,4));
 			switch (compagnia) {
-				case "FS": {
+				case TRENO_GENERICO: {
 					FSFabbricaTreno factory = new FSFabbricaTreno();
 					builder.setFactory(factory);
-					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()));
+					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()), compagnia);
 					break;
 				}
-				case "FRECCIA-ROSSA": {
+				case FRECCIA_ROSSA: {
 					FRFabbricaTreno factory = new FRFabbricaTreno();
 					builder.setFactory(factory);
-					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()));
+					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()), compagnia);
 					break;
 				}
-				case "ITALO": {
+				case ITALO: {
 					ItaloFabbricaTreno factory = new ItaloFabbricaTreno();
 					builder.setFactory(factory);
-					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()));
+					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()), compagnia);
 					break;
 				}
-				case "TRE-NORD": {
+				case TRE_NORD: {
 					TreNordFabbricaTreno factory = new TreNordFabbricaTreno();
 					builder.setFactory(factory);
-					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()));
+					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()), compagnia);
 					break;
 				}
 				default: {
 					FSFabbricaTreno factory = new FSFabbricaTreno();
 					builder.setFactory(factory);
-					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()));
+					treno = builder.getTreno(riga.substring(0,4),riga.substring(4,riga.length()), compagnia);
 					break;
 				}
 			}

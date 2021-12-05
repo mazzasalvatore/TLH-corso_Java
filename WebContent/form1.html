@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Form Ordina Treno</title>
+</head>
+<body>
+<form action="OrdinaTreno1.html" method="GET">
+  <label for="labelTreno">Inserire ordine:</label><br>
+  <label for="labelCompagniaTreno">Scegli una compagnia:</label>
+  <select id="compagniaTreno" name="compagniaTreno">
+    <option value="FRECCIA-ROSSA">FRECCIA-ROSSA</option>
+    <option value="ITALO">ITALO</option>
+    <option value="FS">FS</option>
+    <option value="TRE-NORD">TRE-NORD</option>
+    <option value="NON SO">NON SO</option>
+  </select>
+  <!-- <input type="text" id="compagniaTreno" name="compagniaTreno" value=""><br>-->
+  <!-- <input type="text" id="helpCompagniaTreno" name="helpCompagniaTreno" value="inserire compagnia treno (FRECCIA-ROSSA,FS,ITALO,TRE-NORD)"><br> -->
+  <label for="siglaTreno">Inserire sigla treno da 4 cifre:</label>
+  <input type="text" id="siglaTreno" name="siglaTreno" value="0000" minlength="4" maxlength="4" size="4"><br>
+  <label for="composizioneTreno">Inserire composizione treno es: HPPRPP:</label><br>
+  <input type="text" id="composizioneTreno" name="composizioneTreno" value=""><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

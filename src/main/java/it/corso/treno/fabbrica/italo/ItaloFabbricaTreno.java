@@ -23,9 +23,5 @@ public class ItaloFabbricaTreno implements FabbricaTreno{
 	public ConcreteCargo creaCargo() {
 		return new ItaloCargo();
 	}
-
-	public String getCompagnia() {
-		return "ITALO";
-	}
 	
 }

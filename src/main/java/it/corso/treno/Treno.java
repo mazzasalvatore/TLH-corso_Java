@@ -6,7 +6,7 @@ public class Treno {
 
 	private String codice;
 	private Collection<Vagone> vagoni;
-	private String compagnia;
+	private CompagniaTreno compagnia;
 
 	public String getCodice() {
 		return codice;
@@ -37,11 +37,11 @@ public class Treno {
 		this.vagoni = vagoni;
 	}
 
-	public String getCompagnia() {
+	public CompagniaTreno getCompagnia() {
 		return compagnia;
 	}
 
-	public void setCompagnia(String compagnia) {
+	public void setCompagnia(CompagniaTreno compagnia) {
 		this.compagnia = compagnia;
 	}
 

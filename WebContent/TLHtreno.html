@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TLH Treno</title>
+   <style>
+      body {
+        color: white;
+        background: #FFFFFF;
+        margin: auto;
+  		background-color: black;
+  		text-shadow: 2px 2px red;
+  		font-size: 40px;
+   		font-family: fantasy;
+      }
+    </style>
+</head>
+<body>
+<form action="OrdinaTreno.jsp" method="GET">
+  <label for="labelTreno">Inserire ordine:</label><br>
+  <label for="labelCompagniaTreno">Scegli una compagnia:</label>
+  <select id="compagniaTreno" name="compagniaTreno">
+    <option value="FRECCIA-ROSSA">FRECCIA-ROSSA</option>
+    <option value="ITALO">ITALO</option>
+    <option value="FS">FS</option>
+    <option value="TRE-NORD">TRE-NORD</option>
+    <option value="NON SO">NON SO</option>
+  </select><br>
+  <label for="siglaTreno">Inserire sigla treno da 4 cifre:</label>
+  <input type="text" id="siglaTreno" name="siglaTreno" value="0000" minlength="4" maxlength="4" size="4"><br>
+  <label for="composizioneTreno">Inserire composizione treno (es.: HPPRPP):</label>
+  <input type="text" id="composizioneTreno" name="composizioneTreno" value="" minlength="2" size="30"><br>
+  <input type="submit" value="Elabora">
+</form>
+</body>
+</html>

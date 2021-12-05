@@ -23,9 +23,5 @@ public class TreNordFabbricaTreno implements FabbricaTreno{
 	public ConcreteCargo creaCargo() {
 		return new TreNordCargo();
 	}
-
-	public String getCompagnia() {
-		return "TRE-NORD";
-	}
 	
 }

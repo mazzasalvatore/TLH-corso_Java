@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TLH Unione Treno</title>
+   <style>
+      body {
+        color: black;
+        background: #FFFFFF;
+        margin: auto;
+  		background-color: white;
+  		text-shadow: 1px 1px red;
+  		font-size: 40px;
+   		font-family: fantasy;
+      }
+    </style>
+</head>
+<body>
+<form action="unioneTreno.html" method="GET">
+  <label for="labelTreno">Inserire treni da unire:</label><br>
+  <label for="labelCompagniaTreno">Scegli una compagnia:</label>
+  <select id="compagnia" name="compagnia">
+    <option value="FRECCIA-ROSSA">FRECCIA-ROSSA</option>
+    <option value="ITALO">ITALO</option>
+    <option value="FS">FS</option>
+    <option value="TRE-NORD">TRE-NORD</option>
+    <option value="NON SO">NON SO</option>
+  </select><br>
+  <label for="sigla">Inserire sigla nuovo treno da 4 cifre:</label>
+  <input type="text" id="sigla" name="sigla" value="0000" minlength="4" maxlength="4" size="4"><br>
+  <label for="composizione1">Inserire composizione primo treno (es.: HPPRPP):</label>
+  <input type="text" id="composizione1" name="composizione1" value="" minlength="2" size="30"><br>
+  <label for="composizione2">Inserire composizione secondo treno (es.: HPPRPP):</label>
+  <input type="text" id="composizione2" name="composizione2" value="" minlength="2" size="30"><br>
+  <input type="submit" value="Elabora">
+</form>
+</body>
+</html>
