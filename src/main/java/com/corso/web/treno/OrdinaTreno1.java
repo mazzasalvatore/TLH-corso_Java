@@ -18,7 +18,7 @@ import it.corso.treno.exception.UserErrorException;
  * Servlet implementation class OrdinaTreno
  */
 @WebServlet("/OrdinaTreno.html")
-public class OrdinaTreno extends HttpServlet {
+public class OrdinaTreno1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

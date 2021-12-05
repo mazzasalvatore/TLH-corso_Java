@@ -6,7 +6,7 @@ public class Treno {
 
 	private String codice;
 	private Collection<Vagone> vagoni;
-	private CompagniaTreno compagnia;
+	private String compagnia;
 
 	public String getCodice() {
 		return codice;
@@ -20,7 +20,7 @@ public class Treno {
 		}
 		return "Treno [codice=" + codice + ", compagnia=" + compagnia +  "\nlista vagoni:" + listaVagoni + "] \n";
 	}
-
+	
 	public double pesoTreno() {
 		double pesoTreno = 0;
 		for (Vagone vagone: this.vagoni) {
@@ -37,11 +37,11 @@ public class Treno {
 		this.vagoni = vagoni;
 	}
 
-	public CompagniaTreno getCompagnia() {
+	public String getCompagnia() {
 		return compagnia;
 	}
 
-	public void setCompagnia(CompagniaTreno compagnia) {
+	public void setCompagnia(String compagnia) {
 		this.compagnia = compagnia;
 	}
 

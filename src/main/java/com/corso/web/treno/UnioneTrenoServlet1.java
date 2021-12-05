@@ -14,7 +14,7 @@ import it.corso.treno.builder.ConcreteTrenoBuilder;
 import it.corso.treno.exception.UserErrorException;
 
 @WebServlet("/unioneTreno.html")
-public class UnioneTrenoServlet extends HttpServlet {
+public class UnioneTrenoServlet1 extends HttpServlet {
 
 	public static Treno trenoUnione;
 	

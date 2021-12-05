@@ -14,13 +14,14 @@ import it.corso.treno.builder.ConcreteTrenoBuilder;
 import it.corso.treno.exception.UserErrorException;
 
 /**
- * Servlet implementation class InvertiTreno
+ * Servlet implementation class OrdinaTreno
  */
-@WebServlet("/InvertiTrenoMVC.html")
-public class InvertiTrenoMVC extends HttpServlet {
+@WebServlet("/OrdinaTrenoMVC.html")
+public class OrdinaTrenoMVC1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+       
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 		System.out.println("hai fatto una GET");
         try {
 			elabora(request, response);
 		} catch (ServletException e) {
@@ -33,6 +34,7 @@ public class InvertiTrenoMVC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("hai fatto una GET");
         try {
 			elabora(request, response);
 		} catch (ServletException e) {
@@ -48,29 +50,20 @@ public class InvertiTrenoMVC extends HttpServlet {
 		String compagniaTreno = request.getParameter("compagniaTreno");
 		String siglaTreno = request.getParameter("siglaTreno");
 		String composizioneTreno = request.getParameter("composizioneTreno");
-		System.out.println("compagniaTreno" + compagniaTreno);
 		
-		String composizioneInvertita = "H";
-		for (int i = composizioneTreno.length()-1; i>0; i--) {
-			composizioneInvertita = composizioneInvertita + composizioneTreno.charAt(i);
-		}
-				
 		ConcreteTrenoBuilder builder = new ConcreteTrenoBuilder();
 		builder = FunctionTreno.CalcolaBuilder(compagniaTreno);
-		
+
 		try {
 			Treno treno = builder.getTreno(siglaTreno, composizioneTreno);
 			String erroreMsg = "OK";
-			RequestDispatcher rd = request.getRequestDispatcher("/InvertiTrenoMVC.jsp?" 
-			        + "nuovaComposizioneTreno=" + composizioneInvertita  
-					+ "&erroreMsg=" + erroreMsg);								   
+			RequestDispatcher rd = request.getRequestDispatcher("/OrdinaTrenoMVC.jsp?erroreMsg=" + erroreMsg);								   
 			rd.forward(request, response);
 		} catch (UserErrorException e) {
 			e.printStackTrace();
-			String erroreMsg = "Errore in inversione treno: " + e.getMessage();
-			RequestDispatcher rdErr = request.getRequestDispatcher("/InvertiTrenoMVC.jsp?erroreMsg=" + erroreMsg); 
+			String erroreMsg = "Errore in ordina treno: " + e.getMessage();
+			RequestDispatcher rdErr = request.getRequestDispatcher("/OrdinaTrenoMVC.jsp?erroreMsg=" + erroreMsg); 
 			rdErr.forward(request, response);
 		}
 	}
 }
-

@@ -18,7 +18,7 @@ import it.corso.treno.exception.UserErrorException;
  * Servlet implementation class InvertiTreno
  */
 @WebServlet("/InvertiTreno.html")
-public class InvertiTreno extends HttpServlet {
+public class InvertiTreno1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

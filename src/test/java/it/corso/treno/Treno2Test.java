@@ -15,7 +15,7 @@ public class Treno2Test {
 	builder.setFactory(factory);
 	
 	try {
-		Treno t = builder.getTreno("1234", "HPPPPPRPP", CompagniaTreno.FRECCIA_ROSSA);
+		Treno t = builder.getTreno("1234", "HPPPPPRPP");
 		System.out.println("treno costruito: " + t);
 	} catch (UserErrorException e) {
 		// TODO Auto-generated catch block

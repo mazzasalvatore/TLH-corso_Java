@@ -9,5 +9,7 @@ public interface FabbricaTreno {
 	ConcreteCarrozzaRistorante creaCarrozzaRistorante();
 	
 	ConcreteCargo creaCargo();
+
+	String getCompagnia();
 	
 }

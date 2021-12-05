@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.corso.web.treno.UnioneTrenoServlet" %>
+<%@ page import="com.corso.web.treno.UnioneTrenoServlet1" %>
 <%@ page import="it.corso.treno.Vagone" %>
 <!DOCTYPE html>
 <html>
@@ -24,38 +24,66 @@ th, td {background-color: #96D4D4;
 </head>
 <body>
 
-<% String sigla1 = request.getParameter("sigla1");  %>
-<% String sigla2 = request.getParameter("sigla2");  %>
-<% String sigla  = request.getParameter("sigla");  %>
-<% String compagnia = request.getParameter("compagnia");  %>
-<% String composizione1 = request.getParameter("composizione1");  %>
-<% String composizione2 = request.getParameter("composizione2");  %>
-<% String composizione  = request.getParameter("composizione");  %>
+<%
+String sigla1 = request.getParameter("sigla1");
+%>
+<%
+String sigla2 = request.getParameter("sigla2");
+%>
+<%
+String sigla  = request.getParameter("sigla");
+%>
+<%
+String compagnia = request.getParameter("compagnia");
+%>
+<%
+String composizione1 = request.getParameter("composizione1");
+%>
+<%
+String composizione2 = request.getParameter("composizione2");
+%>
+<%
+String composizione  = request.getParameter("composizione");
+%>
 
 <p> TRENI:</p>
 
-<%for (int i=0; i < composizione1.length(); i++) { %>
+<%
+for (int i=0; i < composizione1.length(); i++) {
+%>
 	<img src="<%=compagnia%>/<%=composizione1.charAt(i)%>.png" style="width:100px;height:100px;">
-<% }%>
+<%
+}
+%>
 
 <br>
 +
 <br>
-<%for (int i=0; i < composizione2.length(); i++) { %>
+<%
+for (int i=0; i < composizione2.length(); i++) {
+%>
 	<img src="<%=compagnia%>/<%=composizione2.charAt(i)%>.png" style="width:100px;height:100px;">
-<% }%>
+<%
+}
+%>
 
 <br>
 =
 <br>
-<%for (int i=0; i < composizione.length(); i++) { %>
+<%
+for (int i=0; i < composizione.length(); i++) {
+%>
 	<img src="<%=compagnia%>/<%=composizione.charAt(i)%>.png" style="width:100px;height:100px;">
-<% }%>
-<p>dati del <%=UnioneTrenoServlet.trenoUnione.toString()%></p>
-<%String listaVagoni = "";
-for (Vagone vagone: UnioneTrenoServlet.trenoUnione.getVagoni()) {
+<%
+}
+%>
+<p>dati del <%=UnioneTrenoServlet1.trenoUnione.toString()%></p>
+<%
+String listaVagoni = "";
+for (Vagone vagone: UnioneTrenoServlet1.trenoUnione.getVagoni()) {
 	listaVagoni = listaVagoni + "\n" + vagone.toString(); 
-}%>
+}
+%>
 <table>
 	<caption>TABELLA TRENO</caption>
 	<tr>
